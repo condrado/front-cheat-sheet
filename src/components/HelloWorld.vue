@@ -1,58 +1,112 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
-  </div>
+    <div class="cover-container d-flex w-100 h-100 p-3 pb-0 mx-auto flex-column">
+      <header class="mb-auto">
+        <div>
+          <h1 class="float-md-start mb-0 mt-0">{{ $t('title_page') }}</h1>
+          <nav class="nav nav-masthead justify-content-center float-md-end">
+            <a class="nav-link active" aria-current="page" href="#">{{ $t('nav.git') }}</a>
+            <a class="nav-link" href="#">{{ $t('nav.css') }}</a>
+            <a class="nav-link" href="#">{{ $t('nav.html') }}</a>
+            <div class="nav-select">
+              <LocaleSwitcher></LocaleSwitcher>
+            </div>
+            
+          </nav>
+        </div>
+      </header>
+
+      <main class="main-container">
+        <PageGit></PageGit>
+      </main>
+
+      <footer class="mt-auto text-white-50">
+        <p>By Condrado.</p>
+      </footer>
+    </div>
 </template>
 
 <script>
+import LocaleSwitcher from "./LocaleSwitcher.vue";
+import PageGit from './PageGit.vue';
+
 export default {
   name: 'HelloWorld',
+  components: {
+    LocaleSwitcher,
+    PageGit
+  },
   props: {
     msg: String
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+<style scoped lang="scss">
+  @import '../styles/index.scss';
+
+
+  .cover-container {
+    max-width: 42em;
+  }
+
+  /*
+  * Header
+  */
+
+  .nav-masthead {
+    .nav-link,
+    .nav-select {
+      padding: .25rem 0;
+      font-weight: 700;
+      color: rgba(255, 255, 255, .5);
+      background-color: transparent;
+      border-bottom: .25rem solid transparent;
+    }
+    .nav-link {
+      &:hover, 
+      &:focus {
+        border-bottom-color: rgba(255, 255, 255, .25);
+      }
+
+      + .nav-link,
+      + .nav-select {
+        margin-left: 1rem;
+
+        select {
+          margin-left: 1rem;
+        }
+      }
+    }
+    .active {
+      color: #fff;
+      border-bottom-color: #fff;
+    }
+    .nav-select {
+      position: relative;
+      margin-left: 1rem;
+
+      &::before {
+        content: "";
+        border-left: 1px solid rgba(255, 255, 255, .5);
+        position: absolute;
+        height: 1rem;
+        top: 0.55rem;
+      }
+
+      select {
+        font-weight: 700;
+        color: rgba(255, 255, 255, .5);
+        text-transform: uppercase;
+      }
+    }
+  }
+
+
+  .main-container {
+    border: 1px dashed rgba(255, 255, 255, .5);
+    border-radius: .5rem;
+    height: calc(100vh - (32px + 36px + 40px + 32px));
+    box-shadow: 0 0 5rem rgba(0, 0, 0, .4);
+    padding: rem(24) rem(12);
+  }
 </style>

@@ -1,0 +1,11 @@
+  /* Custom default button */
+  .btn-secondary {
+    color: #333;
+    text-shadow: none;
+
+    &:hover,
+    &:focus {
+      color: #333;
+      text-shadow: none;
+    }
+  }

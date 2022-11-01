@@ -1,0 +1,21 @@
+{
+  "title_page": "Chuletas Front",
+  "nav": {
+    "git": "Git",
+    "css": "CSS",
+    "html":  "HTML"
+  },
+  "git": {
+    "placehlder": "Bucar",
+    "git": {
+      "init": "Crea un repositorio Git vacío en el directorio especificado. Ejecutar sin argumentos para inicializar el directorio actual como repositorio git",
+      "clone": "Clona el repo ubicado en <b>&lt;repo&gt;</b> en la máquina local. El repositorio original puede estar ubicado en el sistema de archivos local o en una máquina remota a través de HTTP o SSH",
+      "config": "Define el nombre del autor que se utilizará para todos los commits en el repo actual. Los desarrolladores suelen utilizar la bandera <b>--global</b> para establecer las opciones de configuración para el usuario actual",
+      "add": "Poner en escena todos los cambios en <b>&lt;directorio&gt;</b> para la siguiente confirmación. Reemplace <b>&lt;directorio&gt;</b> por <b>&lt;fichero&gt;</b> para cambiar un archivo específico",
+      "commit": "Confirmar la instantánea escenificada, pero en lugar de lanzar un editor de texto, usar <b>&lt;mensaje&gt;</b> como mensaje de confirmación",
+      "status": "Lista de los archivos que están en fase, sin fase y sin seguimiento",
+      "log": "Mostrar todo el historial de commits utilizando el formato por defecto. Para personalizarlo, consulte las opciones adicionales",
+      "diff": "Mostrar los cambios no escalonados entre el índice y el directorio de trabajo"
+    }
+  }
+}
